@@ -1,5 +1,5 @@
 @use "sass:color";
 
 @function adjust-opacity($color, $opacity) {
-  @return color.adjust($color, $alpha: -$opacity);
+  @return color.adjust($color, $alpha: - $opacity);
 }
