@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="../assets/styles/main.scss" />
+    <link rel="icon" href="../assets/images/icon.svg" />
+    <title>Formulario de inscripción</title>
+  </head>
+  <body>
+    <include src="views/header.html"></include>
+    <main class="inscription">
+      <div class="inscription__hero">
+        <h1 class="inscription__title">Formulario de inscripción</h1>
+        <p class="inscription__subtitle">
+          Reserva una plaza en las jornadas artesanas de 2026
+        </p>
+      </div>
+      <div class="inscription__container">
+        <p class="inscription__note">
+          <i class="fa-solid fa-circle-info"></i>
+          Los campos marcados con (*) son obligatorios.
+        </p>
+        <form
+          class="inscription__form"
+          method="POST"
+          name="inscription"
+          data-netlify="true"
+        >
+          <div class="inscription__field">
+            <label class="inscription__label">Nombre (*)</label>
+            <input
+              class="inscription__input form-control"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Introduce tu nombre."
+              required
+            />
+          </div>
+          <div class="inscription__field">
+            <label class="inscription__label">Apellidos (*)</label>
+            <input
+              class="inscription__input form-control"
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Introduce tus apellidos."
+              required
+            />
+          </div>
+          <div class="inscription__field">
+            <label class="inscription__label">Correo electrónico (*)</label>
+            <input
+              class="inscription__input form-control"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Introduce tu correo electrónico."
+              required
+            />
+          </div>
+          <div class="inscription__field">
+            <label class="inscription__label">Teléfono (*)</label>
+            <input
+              class="inscription__input form-control"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Introduce tu teléfono."
+              required
+            />
+          </div>
+          <div class="inscription__field">
+            <label class="inscription__label" for="event">
+              Evento de interés (*):
+            </label>
+            <select
+              class="inscription__input form-select"
+              id="event"
+              name="event"
+              required
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="encuadernacion">
+                Encuadernación — Alessandro Rossi
+              </option>
+              <option value="relojeria">Relojería — Pedro Rodriguez</option>
+              <option value="ceramica">Cerámica Oriental — Mei Lin</option>
+              <option value="carpinteria">Carpintería — Ricardo Murillo</option>
+              <option value="alfareria">Alfarería — Dimitri Valls</option>
+              <option value="textil">Diseño Textil — Marta Torres</option>
+            </select>
+          </div>
+          <div class="inscription__field">
+            <label class="inscription__label">
+              Horario del evento que deseas (*)
+            </label>
+            <div class="inscription__radio-group">
+              <label class="inscription__radio-label">
+                <input
+                  class="form-check-input inscription__radio-input"
+                  type="radio"
+                  name="schedule"
+                  value="turn1"
+                  required
+                />
+                Turno 1 — 9:00 a 11:00h
+              </label>
+              <label class="inscription__radio-label">
+                <input
+                  class="form-check-input inscription__radio-input"
+                  type="radio"
+                  name="schedule"
+                  value="turn2"
+                />
+                Turno 2 — 11:30 a 13:30h
+              </label>
+              <label class="inscription__radio-label">
+                <input
+                  class="form-check-input inscription__radio-input"
+                  type="radio"
+                  name="schedule"
+                  value="turn3"
+                />
+                Turno 3 — 15:30:00 a 17:30h
+              </label>
+            </div>
+          </div>
+          <button
+            class="inscription__button-submit btn btn-primary"
+            type="submit"
+          >
+            Enviar formulario
+          </button>
+        </form>
+      </div>
+    </main>
+    <include src="views/footer.html"></include>
+    <script type="module" src="../assets/scripts/main.js"></script>
+  </body>
+</html>

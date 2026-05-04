@@ -1,0 +1,31 @@
+@use "./variables" as v;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0;
+  font-family: v.$font-family-sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: v.$color-bg-primary;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  flex-shrink: 0;
+}

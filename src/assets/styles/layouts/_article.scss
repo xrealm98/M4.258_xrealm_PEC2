@@ -1,0 +1,199 @@
+@use "../variables" as v;
+
+@layer base, components, overrides;
+
+@layer base {
+  .article {
+    container-type: inline-size;
+    container-name: article-main;
+  }
+
+  :where(.article__section p, .article__intro-text p) {
+    line-height: 1.8;
+    color: v.$color-text;
+    margin-bottom: 1rem;
+  }
+}
+
+@layer components {
+  .article {
+    &__hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding-block: 5rem;
+      padding-inline: 1.5rem;
+      background-color: v.$color-dark;
+      color: white;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("../images/article-img1.webp");
+        background-size: cover;
+        background-position: center;
+        filter: blur(8px);
+        opacity: 0.6;
+        transform: scale(1.1);
+        z-index: 1;
+      }
+    }
+
+    &__hero-icon {
+      max-width: 600px;
+      max-height: 500px;
+      margin-bottom: 1.5rem;
+    }
+
+    &__title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      position: relative;
+      z-index: 2;
+      color: white !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      margin-inline: auto;
+      margin-bottom: 1rem;
+    }
+
+    &__author {
+      position: relative;
+      z-index: 2;
+      color: white !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: 0.85rem;
+    }
+
+    &__container {
+      container-type: inline-size;
+      container-name: article-container;
+      max-width: 800px;
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &__alert {
+      margin-bottom: 2rem;
+    }
+
+    &__intro {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @container article-container (min-width: 560px) {
+        flex-direction: row;
+        gap: 2rem;
+        border-left: 4px solid v.$color-accent;
+        border-right: 4px solid v.$color-accent;
+      }
+    }
+
+    &__blockquote {
+      margin: 0;
+      font-style: italic;
+      color: v.$color-dark;
+
+      @container article-container (min-width: 560px) {
+        padding-top: 0.4rem;
+        padding-left: 1.5rem;
+        flex: 0 0 40%;
+      }
+
+      p {
+        font-size: 1.05rem;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    &__blockquote-cite {
+      font-size: 0.85rem;
+      color: v.$color-accent;
+      font-style: normal;
+    }
+
+    &__intro-text {
+      flex: 1;
+      padding-right: 1.5rem;
+    }
+
+    &__divider {
+      border: none;
+      border-top: 4px solid v.$color-accent !important;
+      margin-block: 2.5rem !important;
+    }
+
+    &__section {
+      margin-bottom: 2rem;
+    }
+
+    &__section-title {
+      font-size: clamp(1.3rem, 3cqi, 2rem);
+      color: v.$color-dark;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid v.$color-bg-secondary;
+    }
+
+    &__list {
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-block: 1.5rem;
+    }
+
+    &__list-item {
+      line-height: 1.6;
+      color: v.$color-dark;
+      font-weight: 600;
+
+      p {
+        margin-top: 0.25rem;
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: v.$color-text;
+        opacity: 0.85;
+      }
+    }
+
+    &__figure-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0.55rem 0;
+      border-radius: v.$border-radius;
+    }
+
+    &__figcaption {
+      font-size: 0.85rem;
+      color: v.$color-text;
+      text-align: center;
+      font-style: italic;
+    }
+  }
+}
+
+@layer overrides {
+  .article__intro:has(.article__blockquote) {
+    padding-top: 0.5rem;
+  }
+
+  .article__section:has(h2) .article__list {
+    margin-top: 1.5rem;
+  }
+
+  .article__section:has(figure) .article__figure-img {
+    max-height: 550px;
+  }
+
+  :is(.article__section-title, .article__blockquote p) {
+    font-family: v.$font-family-serif;
+  }
+}

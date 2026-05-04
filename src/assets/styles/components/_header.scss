@@ -1,0 +1,74 @@
+@use "../variables" as v;
+@use "../functions" as f;
+@use "sass:color";
+
+.header {
+  &__nav {
+    background: linear-gradient(
+      to bottom,
+      #b89363 0%,
+      v.$color-bg-secondary 100%
+    );
+    border-bottom: 1px solid rgba(v.$color-accent, 0.2);
+  }
+
+  &__inner {
+    padding: 0.5rem 1rem;
+
+    @media (min-width: 768px) {
+      margin-top: 2rem;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  &__logo-icon {
+    color: v.$color-accent;
+  }
+
+  &__logo-text {
+    font-size: 1.4rem;
+  }
+
+  &__nav-list {
+    gap: 1rem;
+  }
+
+  &__nav-item {
+    border-bottom: 2px solid f.adjust-opacity(v.$color-dark, 0.2);
+
+    &:first-child {
+      margin-top: 1rem;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    @media (min-width: 768px) {
+      gap: 2rem;
+      border-bottom: none;
+      width: auto;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__nav-link {
+    color: v.$color-text;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      font-weight: bold;
+      color: v.$color-accent;
+    }
+  }
+}

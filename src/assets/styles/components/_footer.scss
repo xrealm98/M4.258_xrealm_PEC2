@@ -1,0 +1,64 @@
+@use "../variables" as v;
+
+.footer {
+  border-top: 1px solid black;
+  &__contact {
+    background-color: v.$color-bg-secondary;
+    padding-inline: 1.5rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 10%;
+    }
+  }
+
+  &__contact-text {
+    color: v.$color-text;
+  }
+
+  &__contact-link {
+    color: v.$color-accent;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__bottom {
+    padding-inline: 1.5rem;
+    text-align: center;
+    background-color: v.$color-dark;
+    @media (min-width: 768px) {
+      padding-inline: 10%;
+    }
+  }
+
+  &__logo {
+    color: v.$color-bg-primary;
+    font-weight: 600;
+  }
+
+  &__logo-icon {
+    color: v.$color-bg-primary;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: v.$color-bg-secondary;
+    font-size: 0.9rem;
+
+    &:hover {
+      color: v.$color-accent;
+      text-decoration: underline;
+    }
+  }
+
+  &__social-link {
+    color: v.$color-bg-secondary;
+    font-size: 1.3rem;
+
+    &:hover {
+      color: v.$color-accent;
+    }
+  }
+}
